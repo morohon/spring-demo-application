@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello world!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div>
+        <form method="post">
+            <input type="text" name="text" placeholder="Введите сообщение" />
+            <input type="text" name="tag" placeholder="Тэг" />
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+    <form method="post" action="/filter">
+        <input type="text" name="tag" />
+        <button type="submit">Найти</button>
+    </form>
+    <div>Список сообщений</div>
+    <div th:each="message: ${messages}">
+        <b th:text="${message.id}" />
+        <span th:text="${message.text}" />
+        <i th:text="${message.tag}" />
+    </div>
+</body>
+</html>
